@@ -1,0 +1,34 @@
+[project]
+name = "dispute-triage-agent"
+version = "0.1.0"
+description = "Triage consumer disputes with a tool-using agent."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "streamlit",
+    "langgraph",
+    "langchain-google-vertexai",
+    "langchain-mcp-adapters",
+    "mcp",
+    "qdrant-client",
+    "duckdb",
+    "pandas",
+    "pyarrow",
+    "pydantic-settings",
+    "python-dotenv",
+    "pytest",
+    "requests>=2.34.2",
+    "datasets>=5.2.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/triage"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src" = ""
