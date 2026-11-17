@@ -8,6 +8,7 @@ Connects to one of our MCP servers the same way an AI agent would:
 Usage:
   uv run python scripts/test_mcp_client.py complaints
   uv run python scripts/test_mcp_client.py regulations
+  uv run python scripts/test_mcp_client.py actions
 """
 
 import asyncio
@@ -16,6 +17,8 @@ import sys
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+
+SAMPLE_COMPLAINT = "I paid off a collection account in March but it still shows as unpaid."
 
 # For each server: which tool calls to test, and with what inputs.
 TEST_CALLS = {
@@ -29,6 +32,25 @@ TEST_CALLS = {
         ("search_regulations",
          {"query": "How many days does a credit bureau have to investigate a dispute?",
           "limit": 2}),
+    ],
+    "actions": [
+        # 1. An honest draft with a real citation: should be SAVED.
+        ("submit_draft_for_approval", {
+            "complaint": SAMPLE_COMPLAINT,
+            "category": "incorrect_information",
+            "draft_response": "Thank you for your dispute. Under federal law we will "
+                              "reinvestigate this item within 30 days of receiving it.",
+            "citations": ["15 U.S.C. §1681i(a)"],
+        }),
+        # 2. A cheating draft with an invented citation: should be REFUSED.
+        ("submit_draft_for_approval", {
+            "complaint": SAMPLE_COMPLAINT,
+            "category": "incorrect_information",
+            "draft_response": "We will fix this within 5 days.",
+            "citations": ["15 U.S.C. §1681z(a)"],
+        }),
+        # 3. Check the status of draft #1.
+        ("get_draft_status", {"draft_id": 1}),
     ],
 }
 
@@ -58,6 +80,8 @@ async def main(server_name: str) -> None:
             for tool_name, arguments in TEST_CALLS[server_name]:
                 print(f"\n--- Calling {tool_name} ---")
                 result = await session.call_tool(tool_name, arguments)
+                if result.isError:
+                    print("(tool refused this call)")
                 for item in result.content:
                     print(item.text)
 
