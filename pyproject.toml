@@ -21,6 +21,7 @@ dependencies = [
     "pytest",
     "requests>=2.34.2",
     "datasets>=5.2.0",
+    "google-genai>=2.34.0",
 ]
 
 [build-system]
