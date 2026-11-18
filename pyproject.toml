@@ -23,6 +23,7 @@ dependencies = [
     "datasets>=5.2.0",
     "google-genai>=2.34.0",
     "beautifulsoup4>=4.15.0",
+    "langchain-google-genai>=4.4.3",
 ]
 
 [build-system]
