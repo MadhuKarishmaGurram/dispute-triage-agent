@@ -162,3 +162,13 @@ def get_audit_log(draft_id: int | None = None) -> list[dict]:
     finally:
         connection.close()
     return [dict(row) for row in rows]
+
+def record_agent_trace(draft_id: int, trace: list[str]) -> None:
+    """Save the agent's step-by-step trace for a draft in the audit log,
+    so a reviewer can see what the agent did before approving."""
+    connection = _connect()
+    try:
+        with connection:
+            _audit(connection, "agent", "agent_trace", draft_id, {"trace": trace})
+    finally:
+        connection.close()
