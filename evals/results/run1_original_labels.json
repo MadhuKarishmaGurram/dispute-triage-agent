@@ -1,0 +1,196 @@
+{
+  "accuracy": 0.7083333333333334,
+  "baseline": 0.25,
+  "per_category": {
+    "incorrect_information": {
+      "correct": 5,
+      "total": 6
+    },
+    "investigation_problem": {
+      "correct": 1,
+      "total": 4
+    },
+    "improper_use": {
+      "correct": 2,
+      "total": 4
+    },
+    "fraud_and_identity": {
+      "correct": 5,
+      "total": 5
+    },
+    "cannot_access_report": {
+      "correct": 4,
+      "total": 5
+    }
+  },
+  "cases": [
+    {
+      "case_id": "incorrect_information_1",
+      "expected": "incorrect_information",
+      "predicted": "fraud_and_identity",
+      "correct": false,
+      "reasoning": "The complaint is classified under fraud and identity because it directly addresses the agency's failure to block fraudulent credit lines after the consumer submitted an FTC identity theft report in accordance with FCRA Section 605B."
+    },
+    {
+      "case_id": "incorrect_information_2",
+      "expected": "incorrect_information",
+      "predicted": "incorrect_information",
+      "correct": true,
+      "reasoning": "The consumer is disputing inaccurate information on their credit report and requesting its correction or removal, which falls under incorrect_information."
+    },
+    {
+      "case_id": "incorrect_information_3",
+      "expected": "incorrect_information",
+      "predicted": "incorrect_information",
+      "correct": true,
+      "reasoning": "The complaint is classified as incorrect information because the consumer is disputing incorrect balances being reported on closed accounts."
+    },
+    {
+      "case_id": "incorrect_information_4",
+      "expected": "incorrect_information",
+      "predicted": "incorrect_information",
+      "correct": true,
+      "reasoning": "The consumer is disputing the reporting and classification of child support on their credit report, arguing it does not constitute a valid debt or credit account."
+    },
+    {
+      "case_id": "investigation_problem_1",
+      "expected": "investigation_problem",
+      "predicted": "fraud_and_identity",
+      "correct": false,
+      "reasoning": "The complaint is classified under fraud and identity because the consumer explicitly reports being a victim of identity theft and seeks removal of unauthorized accounts."
+    },
+    {
+      "case_id": "investigation_problem_2",
+      "expected": "investigation_problem",
+      "predicted": "other",
+      "correct": false,
+      "reasoning": "The complaint is categorized as other because it relates to obtaining bank statements from a financial institution, which does not fall under credit reporting issues."
+    },
+    {
+      "case_id": "investigation_problem_3",
+      "expected": "investigation_problem",
+      "predicted": "investigation_problem",
+      "correct": true,
+      "reasoning": "The complaint is classified under investigation_problem because the consumer is explicitly dissatisfied with how their prior disputes were handled, specifically citing inadequate investigation and a lack of received results."
+    },
+    {
+      "case_id": "investigation_problem_4",
+      "expected": "investigation_problem",
+      "predicted": "fraud_and_identity",
+      "correct": false,
+      "reasoning": "The complaint centers on the consumer's inability to resolve issues related to identity theft and fraudulent accounts despite filing FTC reports."
+    },
+    {
+      "case_id": "improper_use_1",
+      "expected": "improper_use",
+      "predicted": "improper_use",
+      "correct": true,
+      "reasoning": "The consumer is complaining that their credit report and account information were furnished to others without their written permission, which falls under improper use."
+    },
+    {
+      "case_id": "improper_use_2",
+      "expected": "improper_use",
+      "predicted": "improper_use",
+      "correct": true,
+      "reasoning": "The complaint explicitly alleges that an unauthorized inquiry was conducted on the consumer's credit report without permissible purpose or written consent."
+    },
+    {
+      "case_id": "improper_use_3",
+      "expected": "improper_use",
+      "predicted": "fraud_and_identity",
+      "correct": false,
+      "reasoning": "The complaint is classified under fraud and identity because the consumer is requesting a block on information due to alleged identity theft and referencing identity theft laws."
+    },
+    {
+      "case_id": "improper_use_4",
+      "expected": "improper_use",
+      "predicted": "incorrect_information",
+      "correct": false,
+      "reasoning": "The complaint is categorized as incorrect_information because the consumer is seeking to correct personal information (address and telephone numbers) and dispute negative accounts on their credit report."
+    },
+    {
+      "case_id": "fraud_and_identity_1",
+      "expected": "fraud_and_identity",
+      "predicted": "fraud_and_identity",
+      "correct": true,
+      "reasoning": "The complaint is a formal request for a security freeze on the consumer's credit report, which is classified under fraud and identity."
+    },
+    {
+      "case_id": "fraud_and_identity_2",
+      "expected": "fraud_and_identity",
+      "predicted": "fraud_and_identity",
+      "correct": true,
+      "reasoning": "The complaint is categorized under fraud and identity because the consumer is requesting the removal of fraud alerts and security freezes on their credit profile."
+    },
+    {
+      "case_id": "fraud_and_identity_3",
+      "expected": "fraud_and_identity",
+      "predicted": "fraud_and_identity",
+      "correct": true,
+      "reasoning": "The complaint is classified under fraud and identity because it directly relates to identity theft and unauthorized accounts being opened."
+    },
+    {
+      "case_id": "fraud_and_identity_4",
+      "expected": "fraud_and_identity",
+      "predicted": "fraud_and_identity",
+      "correct": true,
+      "reasoning": "The complaint falls under the fraud_and_identity category because it details the consumer's issues and frustrations while attempting to place a security freeze on their credit report."
+    },
+    {
+      "case_id": "cannot_access_report_1",
+      "expected": "cannot_access_report",
+      "predicted": "incorrect_information",
+      "correct": false,
+      "reasoning": "The complaint is classified as incorrect information because the consumer is seeking to correct outdated or inaccurate negative history regarding a loan default on their credit report."
+    },
+    {
+      "case_id": "cannot_access_report_2",
+      "expected": "cannot_access_report",
+      "predicted": "cannot_access_report",
+      "correct": true,
+      "reasoning": "The complaint is classified as cannot_access_report because the consumer is unable to obtain their credit report through online, mail, or phone channels."
+    },
+    {
+      "case_id": "cannot_access_report_3",
+      "expected": "cannot_access_report",
+      "predicted": "cannot_access_report",
+      "correct": true,
+      "reasoning": "The complaint is centered on the consumer's inability to obtain their credit report from TransUnion without paying a fee."
+    },
+    {
+      "case_id": "cannot_access_report_4",
+      "expected": "cannot_access_report",
+      "predicted": "cannot_access_report",
+      "correct": true,
+      "reasoning": "The consumer is explicitly complaining about being unable to access and download their own credit reports due to technical issues on the websites."
+    },
+    {
+      "case_id": "edge_injection",
+      "expected": "incorrect_information",
+      "predicted": "incorrect_information",
+      "correct": true,
+      "reasoning": "The complaint is classified under incorrect_information because the consumer states their credit report displays an outdated and incorrect balance for a debt they have already paid in full."
+    },
+    {
+      "case_id": "edge_pii",
+      "expected": "incorrect_information",
+      "predicted": "incorrect_information",
+      "correct": true,
+      "reasoning": "The complaint is classified as incorrect_information because the consumer is disputing a reported late payment that they claim was paid on time."
+    },
+    {
+      "case_id": "edge_too_short",
+      "expected": "cannot_access_report",
+      "predicted": "cannot_access_report",
+      "correct": true,
+      "reasoning": "The complaint indicates a total lack of credit history, preventing the consumer from accessing their credit report."
+    },
+    {
+      "case_id": "edge_identity_theft",
+      "expected": "fraud_and_identity",
+      "predicted": "fraud_and_identity",
+      "correct": true,
+      "reasoning": "The complaint is classified under fraud and identity because it directly addresses identity theft, an unauthorized credit card opening, and a request to block fraudulent activity."
+    }
+  ]
+}
